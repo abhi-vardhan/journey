@@ -35,7 +35,8 @@ const HeroSection: React.FC = () => {
               </Button>
               <Button
                 className="k-button k-button-md k-rounded-md k-button-outline k-button-outline-info"
-                onClick={() => window.location.href = '/analytics'}
+                onClick={() => navigate('/analytics')}
+                
               >
                 <SvgIcon icon={chartAreaClusteredIcon} className="k-icon k-button-icon" />
                 <span className="k-button-text">View Analytics</span>
