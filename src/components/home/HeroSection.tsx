@@ -7,8 +7,10 @@ import { Fade } from '@progress/kendo-react-animation';
 import { Notification, NotificationGroup } from '@progress/kendo-react-notification';
 import { DatePicker } from '@progress/kendo-react-dateinputs';
 import { Card, CardTitle, CardBody } from '@progress/kendo-react-layout';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-12 md:py-24">
       <div className="container px-4 md:px-6">
@@ -26,7 +28,7 @@ const HeroSection: React.FC = () => {
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Button
                 className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary"
-                onClick={() => window.location.href = '/journal'}
+                onClick={() => navigate('/journal')}
               >
                 <SvgIcon icon={bookIcon} className="k-icon k-button-icon" />
                 <span className="k-button-text">Start Journaling</span>
