@@ -37,7 +37,7 @@ const Index = () => {
       </section>
       
       <CtaSection loading={loading} onGetStarted={handleGetStarted} />
-      <WelcomeDialog showPromo={showPromo} onClose={() => setShowPromo(false)} />
+      <WelcomeDialog showPromo={showPromo} onClose={() => setShowPromo(true)} />
     </Layout>
   );
 };

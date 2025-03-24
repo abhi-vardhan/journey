@@ -26,19 +26,25 @@ const CtaSection: React.FC<CtaSectionProps> = ({ loading, onGetStarted }) => {
         </div>
         
         <div className="mx-auto w-full max-w-sm space-y-2 mt-12 text-center">
-          <Button
-            className="k-button k-button-lg k-rounded-md k-button-solid k-button-solid-primary"
-            onClick={onGetStarted}
-          >
-            {loading ? (
-              <Loader size="small" type="infinite-spinner" />
-            ) : (
-              <>
-                <SvgIcon icon={plusIcon} className="k-icon k-button-icon" />
-                <span className="k-button-text">Get Started</span>
-              </>
-            )}
-          </Button>
+        <Button
+  className="k-button k-button-lg k-rounded-md k-button-solid k-button-solid-primary"
+  onClick={() => {
+    if (typeof onGetStarted === 'function') {
+      onGetStarted();
+    } else {
+      console.error('onGetStarted is not a function');
+    }
+  }}
+>
+  {loading ? (
+    <Loader size="small" type="infinite-spinner" />
+  ) : (
+    <>
+      <SvgIcon icon={plusIcon} className="k-icon k-button-icon" />
+      <span className="k-button-text">Get Started</span>
+    </>
+  )}
+</Button>
         </div>
       </div>
     </section>
