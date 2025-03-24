@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { Button } from '@progress/kendo-react-buttons';
 import { SvgIcon } from '@progress/kendo-react-common';
 import { plusIcon } from '@progress/kendo-svg-icons';
 import { Loader } from '@progress/kendo-react-indicators';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 interface CtaSectionProps {
   loading: boolean;
@@ -11,6 +11,8 @@ interface CtaSectionProps {
 }
 
 const CtaSection: React.FC<CtaSectionProps> = ({ loading, onGetStarted }) => {
+  const navigate = useNavigate(); // Initialize navigate
+
   return (
     <section className="py-12 md:py-24 bg-gradient-to-b from-white to-secondary/20">
       <div className="container px-4 md:px-6">
@@ -26,25 +28,19 @@ const CtaSection: React.FC<CtaSectionProps> = ({ loading, onGetStarted }) => {
         </div>
         
         <div className="mx-auto w-full max-w-sm space-y-2 mt-12 text-center">
-        <Button
-  className="k-button k-button-lg k-rounded-md k-button-solid k-button-solid-primary"
-  onClick={() => {
-    if (typeof onGetStarted === 'function') {
-      onGetStarted();
-    } else {
-      console.error('onGetStarted is not a function');
-    }
-  }}
->
-  {loading ? (
-    <Loader size="small" type="infinite-spinner" />
-  ) : (
-    <>
-      <SvgIcon icon={plusIcon} className="k-icon k-button-icon" />
-      <span className="k-button-text">Get Started</span>
-    </>
-  )}
-</Button>
+          <Button
+            className="k-button k-button-lg k-rounded-md k-button-solid k-button-solid-primary"
+            onClick={() => navigate('/journal')} // Use navigate here
+          >
+            {loading ? (
+              <Loader size="small" type="infinite-spinner" />
+            ) : (
+              <>
+                <SvgIcon icon={plusIcon} className="k-icon k-button-icon" />
+                <span className="k-button-text">Get Started</span>
+              </>
+            )}
+          </Button>
         </div>
       </div>
     </section>
